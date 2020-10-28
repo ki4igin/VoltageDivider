@@ -1,0 +1,15 @@
+
+ImportSeries;
+
+e192 = series.E192;
+div_ref = 0.228805318;
+N = length(e192);
+sum = e192 * ones(1, N) + (e192 * ones(1, N))';
+div = (e192 * ones(1, N)) ./ sum;
+delta = abs(div_ref - div);
+
+[row_min, col_min] = find( delta == min( min(delta(:) ) ));
+
+disp(["R1 = ", e192(row_min)])
+
+
